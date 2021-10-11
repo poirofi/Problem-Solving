@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
+    private Rigidbody2D rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody2D>();
+
+        Movement();
     }
 
-    // Update is called once per frame
-    void Update()
+    // untuk pergerakan bolanya ke arah random dengan kecepatan konstan
+    void Movement()
     {
-        
+        float x = Random.Range(-100, 100);
+        float y = Random.Range(-100, 100);
+
+        rigidBody.AddForce(new Vector2(x, y).normalized * 50);
     }
 }
